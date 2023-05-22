@@ -1,3 +1,4 @@
+using CommandAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,9 @@ namespace CommandAPI
         {
             services.AddRazorPages();
             services.AddControllers();
+
+            // Add the below code for DI
+            services.AddScoped<ICommandAPIRepo, MockCommandAPIRepo> ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
